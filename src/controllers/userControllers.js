@@ -30,7 +30,7 @@ export async function register(req, res) {
 
     } catch ( error ) {
         console.log(error)
-        res.status(500).send({ errors: ["Internal server error"] })
+        res.status(500).send({ errors: error})
     }
 }
 
@@ -48,6 +48,6 @@ export async function login(req, res) {
 
     } catch ( error ) {
         console.log(error)
-        res.status(500).send({ errors: ["Internal server error"] })
+        res.status(500).send({ errors: error})
     }
 }

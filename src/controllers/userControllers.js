@@ -48,6 +48,6 @@ export async function login(req, res) {
 
     } catch ( error ) {
         console.log(error)
-        res.status(500).send({ errors: error})
+        res.status(500).send({ errors: error.message})
     }
 }

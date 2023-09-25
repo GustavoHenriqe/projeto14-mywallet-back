@@ -6,7 +6,7 @@ export async function transation(req, res) {
         const date = dayjs().format("DD/MM")
         const { value, description } = req.body
         const tipo = req.params.tipo
-        const number = Number(value) * 100
+        const number = Number(value)
         const data = res.locals.data
 
         const getBalanceOfUser = await db.collection("balances").findOne({ id: data.id })
@@ -19,6 +19,7 @@ export async function transation(req, res) {
                 { $set: { value: calc, operations: newArray } }
             )
         }
+
         if ( tipo === "saida" ) {
             const calc = getBalanceOfUser.value - number
             const newArray = [ {type: "negative", date: date, value: number, description: description}, ...getBalanceOfUser.operations ]

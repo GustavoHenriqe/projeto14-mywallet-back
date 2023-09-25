@@ -6,7 +6,7 @@ export async function transation(req, res) {
         const date = dayjs().format("DD/MM")
         const { value, description } = req.body
         const tipo = req.params.tipo
-        const number = parseInt(value) * 100
+        const number = Number(value) * 100
         const data = res.locals.data
 
         const getBalanceOfUser = await db.collection("balances").findOne({ id: data.id })

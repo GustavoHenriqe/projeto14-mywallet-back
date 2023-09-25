@@ -38,7 +38,7 @@ export async function login(req, res) {
     try {
         const data = { id: req.user.id }
         const options = { expiresIn: 172800 }
-        const key = process.env.KEY
+        const key = "myserver"
 
         const token = jwt.sign(data, key, options)
 

@@ -8,7 +8,7 @@ export async function validateToken(req, res, next) {
         const token = req.headers.authorization
         const removedBearerInToken = token.slice(7)
 
-        const key = process.env.KEY
+        const key = "myserver"
         const decodeToken = jwt.verify(removedBearerInToken, key)
 
         res.locals.data = decodeToken
